@@ -9,5 +9,4 @@ async function processGraph(graph, context) {
     await applyRules(graph, context)
     console.log("Hello from rule!!")
 }
-
 module.exports = processGraph
