@@ -1,4 +1,4 @@
-const joi = require("@hapi/joi")
+//const joi = require("@hapi/joi")
 /**
  * stripe-payout
  * stripe-customer
@@ -15,10 +15,7 @@ const joi = require("@hapi/joi")
 const StripeInvoice = {
     integrationId: 909,
     rawDataType: 'stripe-invoice',
-    root: true,
-    schema: joi.object({
-
-    })
+    root: true
 }
 
 const StripeLineItem = {
