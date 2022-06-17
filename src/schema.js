@@ -12,10 +12,24 @@
  * stripe-refund
  */
 
+
+const StripeCustomer = {
+    integrationId: 909,
+    rawDataType: 'stripe-customer'
+}
+
 const StripeInvoice = {
     integrationId: 909,
     rawDataType: 'stripe-invoice',
-    root: true
+    root: true,
+    linkExtractors: [
+        {
+            integrationId: 909,
+            rawDataType: 'stripe-customer',
+            propertyPath: 'customer_id',
+            softLink: true
+        }
+    ]
 }
 
 const StripeLineItem = {
@@ -45,7 +59,8 @@ const QualiaSchema = {
     },
     nodes: [
         StripeInvoice,
-        StripeLineItem
+        StripeLineItem,
+        StripeCustomer
     ]
 }
 
