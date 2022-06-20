@@ -22,7 +22,7 @@ const StripeInvoice = {
     integrationId: 909,
     rawDataType: 'stripe-invoice',
     root: true,
-    linkExtractors: [
+    links: [
         {
             integrationId: 909,
             rawDataType: 'stripe-customer',
@@ -35,12 +35,13 @@ const StripeInvoice = {
 const StripeLineItem = {
     integrationId: 909,
     rawDataType: 'stripe-line-item',
-    linkExtractors: [
-        {
-            integrationId: 909,
-            rawDataType: 'stripe-invoice',
-            propertyPath: 'invoice_id'
-        }/*,
+    mainLink: {
+        integrationId: 909,
+        rawDataType: 'stripe-invoice',
+        propertyPath: 'invoice_id'
+    },
+    links: [
+        /*,
         {
             integrationId: 909,
             rawDataType: 'stripe-invoice',
