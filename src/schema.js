@@ -13,9 +13,20 @@
  */
 
 
+
 const StripeCustomer = {
     integrationId: 909,
     rawDataType: 'stripe-customer'
+}
+
+const StripeDispute = {
+    integrationId: 909,
+    rawDataType: "stripe-dispute",
+    mainLink: {
+        integrationId: 909,
+        rawDataType: 'stripe-line-item',
+        propertyPath: 'line_item_id'
+    }
 }
 
 const StripeInvoice = {
@@ -61,7 +72,8 @@ const QualiaSchema = {
     nodes: [
         StripeInvoice,
         StripeLineItem,
-        StripeCustomer
+        StripeCustomer,
+        StripeDispute
     ]
 }
 
