@@ -21,83 +21,62 @@ const QultraBill = {
             integrationId: 909,
             rawDataType: 'stripe-charge',
             propertyPath: 'payment_processor_id'
+        },
+        {
+            integrationId: 928,
+            rawDataType: 'qultra-bill',
+            propertyPath: 'charge_id',
+            mainLink: true
+        },
+        {
+            integrationId: 928,
+            rawDataType: 'qultra-bill',
+            propertyPath: 'order_id'
+
         }
     ]
 }
 
-const StripePayout = {
-    integrationId: 909,
-    rawDataType: 'stripe-payout',
-    mainLink: {
-        integrationId: 909,
-        rawDataType: 'stripe-balance-transaction',
-        propertyPath: 'balance_transaction'
-    }
+
+const QultraRefundCredit = {
+    integrationId: 928,
+    rawDataType: 'qultra-refund-credit',
+    links: [
+        {
+            integrationId: 928,
+            rawDataType: 'qultra-bill',
+            propertyPath: 'parent_charge_id'
+        },
+        {
+            integrationId: 928,
+            rawDataType: 'qultra-refund-credit',
+            propertyPath: 'refund_id'
+        }
+    ]
 }
 
 const StripeCharge = {
     integrationId: 909,
     rawDataType: 'stripe-charge',
-    mainLink: {
+    links: [{
         integrationId: 909,
         rawDataType: 'stripe-balance-transaction',
         propertyPath: 'balance_transaction'
-    }
+    }]
 }
 
 const StripeBalanceTransaction = {
     integrationId: 909,
     rawDataType: 'stripe-balance-transaction',
-    mainLink: {
-        integrationId: 909,
-        rawDataType: 'stripe-balance-transaction',
-        propertyPath: 'balance_transaction'
-    }
-}
-
-const StripeCustomer = {
-    integrationId: 909,
-    rawDataType: 'stripe-customer'
-}
-
-const StripeDispute = {
-    integrationId: 909,
-    rawDataType: "stripe-dispute",
-    mainLink: {
-        integrationId: 909,
-        rawDataType: 'stripe-line-item',
-        propertyPath: 'line_item_id'
-    }
-}
-
-const StripeInvoice = {
-    integrationId: 909,
-    rawDataType: 'stripe-invoice',
-    root: true,
-    links: [
-        {
-            integrationId: 909,
-            rawDataType: 'stripe-customer',
-            propertyPath: 'customer',
-            softLink: true
-        }
-    ]
-}
-
-const StripeLineItem = {
-    integrationId: 909,
-    rawDataType: 'stripe-line-item',
-    mainLink: {
-        integrationId: 909,
-        rawDataType: 'stripe-invoice',
-        propertyPath: 'invoice_id'
-    }
 }
 
 const QualiaSchema = {
     organizationId: 205,
     nodes: [
-        QultraBill
+        QultraBill,
+        QultraRefundCredit,
+        StripeCharge,
+        StripeBalanceTransaction
     ]
 }
 
