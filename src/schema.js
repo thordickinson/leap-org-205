@@ -65,17 +65,29 @@ const QultraRefundCredit = {
 const StripeCharge = {
     integrationId: 909,
     rawDataType: 'stripe-charge',
-    links: [{
-        integrationId: 909,
-        rawDataType: 'stripe-balance-transaction',
-        propertyPath: 'balance_transaction'
-    }]
+    links: [
+        {
+            integrationId: 909,
+            rawDataType: 'stripe-balance-transaction',
+            propertyPath: 'balance_transaction'
+        },
+        {
+            integrationId: 909,
+            rawDataType: 'stripe-customer',
+            propertyPath: 'customer'
+        }
+    ]
 }
 
 const StripeBalanceTransaction = {
     integrationId: 909,
     rawDataType: 'stripe-balance-transaction',
 }
+const StripeCustomer = {
+    integrationId: 909,
+    rawDataType: 'stripe-customer',
+}
+
 
 const QualiaSchema = {
     organizationId: 205,
@@ -83,7 +95,8 @@ const QualiaSchema = {
         QultraBill,
         QultraRefundCredit,
         StripeCharge,
-        StripeBalanceTransaction
+        StripeBalanceTransaction,
+        StripeCustomer
     ]
 }
 
