@@ -45,7 +45,8 @@ const QultraRefundCredit = {
         {
             integrationId: 928,
             rawDataType: 'qultra-bill',
-            propertyPath: 'parent_charge_id'
+            propertyPath: 'parent_charge_id',
+            mainLink: true
         },
         {
             integrationId: 928,
