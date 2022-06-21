@@ -19,7 +19,13 @@ const QultraBill = {
     links: [
         {
             integrationId: 909,
-            rawDataType: 'stripe-charge',
+            rawDataType: (data) => {
+                const processor = data.payment_processor_id
+                if (!processor) return
+                if (processor.indexOf("py_") == 0) return "stripe-payout"
+                if (processor.indexOf("ch_") == 0) return "stripe-charge"
+                return undefined
+            },
             propertyPath: 'payment_processor_id'
         },
         {
