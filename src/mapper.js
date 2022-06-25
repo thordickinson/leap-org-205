@@ -1,10 +1,7 @@
-async function mapToCoreEntities(graph, context) {
+function mapToCoreEntities(graph) {
     console.log("Hello from  mapping")
-    const stripeInvoice = graph.findNodeByType("stripe-invoice")
-    const invoice = context.createInvoice(stripeInvoice).withData({
-        "customFields": {
-        }
-    })
+    const { data, metadata } = graph
+    const invoice = { id: metadata.id, anotherProperty: "hello world" }
     return [invoice]
 }
 
