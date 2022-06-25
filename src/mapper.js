@@ -2,6 +2,7 @@ function mapToCore(graph) {
     console.log("Hello from  mapping")
     const { data: { nodes }, metadata } = graph
     const type = typeof nodes;
+    console.log("isArray", Array.isArray(nodes));
     console.log(type, nodes);
     // const qultraBill = nodes.find(n => n.metadata.rawDataType == "qultra-bill");
     //  const invoice = mapQultraBill(qultraBill)
