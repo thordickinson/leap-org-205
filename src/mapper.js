@@ -1,10 +1,17 @@
 function mapToCore(graph) {
     console.log("Hello from  mapping")
-    const { data, metadata } = graph
-    const invoice = { id: metadata.id, internalCall: anotherInternalFunction() }
+    const { data: { nodes }, metadata } = graph
+    const qultraBill = nodes.find(n => n.metadata.rawDataType == "qultra-bill");
+    const invoice = mapQultraBill(qultraBill)
     return [invoice]
 }
 
-function anotherInternalFunction() {
-    return "Hello world 2";
+function mapQultraBill(qultraBill) {
+    const { metadata, data } = qultraBill
+    return {
+        leapfin_id: `${metadata.integrationId}:${metadata.rawDataType}:${metadata.id}:LeapfinInvoice`,
+        data: {
+            createdAt: data.date
+        }
+    }
 }
