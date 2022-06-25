@@ -1,7 +1,7 @@
 function mapToCore(graph) {
     console.log("Hello from  mapping")
     const { data: { nodes }, metadata } = graph
-    const invoice = { leapfin_id: metadata.id, data: anotherInternalFunction() }
+    const invoice = { leapfinId: metadata.id, data: anotherInternalFunction() }
     return [invoice]
 }
 
