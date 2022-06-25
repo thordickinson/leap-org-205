@@ -1,9 +1,10 @@
 function mapToCore(graph) {
     console.log("Hello from  mapping")
     const { data: { nodes }, metadata } = graph
-    const qultraBill = nodes.find(n => n.metadata.rawDataType == "qultra-bill");
-    const invoice = mapQultraBill(qultraBill)
-    return [invoice]
+    console.log(nodes);
+    // const qultraBill = nodes.find(n => n.metadata.rawDataType == "qultra-bill");
+    //  const invoice = mapQultraBill(qultraBill)
+    return []
 }
 
 function mapQultraBill(qultraBill) {
