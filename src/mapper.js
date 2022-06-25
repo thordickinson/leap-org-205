@@ -6,5 +6,5 @@ function mapToCore(graph) {
 }
 
 function anotherInternalFunction() {
-    return "Hello world";
+    return "Hello world 2";
 }
