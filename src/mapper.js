@@ -1,4 +1,5 @@
 function mapToCore(graph) {
+    graph = JSON.parse(JSON.stringify(graph))
     console.log("Hello from  mapping")
     const { data: { nodes }, metadata } = graph
     const type = typeof nodes;
