@@ -1,21 +1,10 @@
 function mapToCore(graph) {
-    graph = JSON.parse(JSON.stringify(graph))
     console.log("Hello from  mapping")
     const { data: { nodes }, metadata } = graph
-    const type = typeof nodes;
-    console.log("isArray", Array.isArray(nodes));
-    console.log(type, nodes);
-    // const qultraBill = nodes.find(n => n.metadata.rawDataType == "qultra-bill");
-    //  const invoice = mapQultraBill(qultraBill)
-    return []
+    const invoice = { leapfin_id: metadata.id, data: anotherInternalFunction() }
+    return [invoice]
 }
 
-function mapQultraBill(qultraBill) {
-    const { metadata, data } = qultraBill
-    return {
-        leapfin_id: `${metadata.integrationId}:${metadata.rawDataType}:${metadata.id}:LeapfinInvoice`,
-        data: {
-            createdAt: data.date
-        }
-    }
+function anotherInternalFunction() {
+    return "Hello world 2";
 }
